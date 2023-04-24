@@ -20,7 +20,6 @@ export default NextAuth({
             payload
           );
           const user = res.data;
-
           return user;
         } catch (error) {
           return;

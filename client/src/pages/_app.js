@@ -7,12 +7,14 @@ import Message from "@/components/PromotionalMessage/Message";
 export default function App({ Component, pageProps, router }) {
   const hideHeader = router.pathname === "/registro";
 
-  if (typeof document !== 'undefined') {
-    if (router.pathname === "/reserva" || router.pathname === "/reserva/editar/[id]") {
-      document.body.classList.add("bg-grey2")
-    }
-    else {
-      document.body.classList.remove("bg-grey2")
+  if (typeof document !== "undefined") {
+    if (
+      router.pathname === "/reserva" ||
+      router.pathname === "/reserva/editar/[id]"
+    ) {
+      document.body.classList.add("bg-grey2");
+    } else {
+      document.body.classList.remove("bg-grey2");
     }
   }
 
