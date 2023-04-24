@@ -52,12 +52,16 @@ export default function FormRegister() {
     onSubmit: async (data) => {
       const { name, dni, email, password } = data;
       try {
-        await axios.post("http://localhost:3001/api/user/register", {
-          dni,
-          name,
-          email,
-          password,
-        });
+        await axios.post(
+          "https://matias-lineup.onrender.com/api/user/register",
+          {
+            dni,
+            name,
+            email,
+            password,
+          },
+          { withCredentials: true, credentials: "include" }
+        );
         setModalIsOpen(true);
       } catch (err) {
         if (err.response.data.includes("email")) {
