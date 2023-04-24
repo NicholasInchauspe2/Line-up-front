@@ -1,0 +1,101 @@
+@import "./colors";
+
+.btn-primary {
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background-color: $primaryColor;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  &:hover {
+    background-color: $secondaryColor;
+  }
+  &:active {
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.24);
+  }
+  &:disabled {
+    background-color: $tertiaryGrey;
+    color: $senaryGrey;
+  }
+}
+
+.btn-secondary {
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba($color: $primaryColor, $alpha: 0.1);
+  color: $primaryColor;
+  font-size: 16px;
+  font-weight: 600;
+  &:hover {
+    background-color: rgba($color: $secondaryColor, $alpha: 0.2);
+  }
+  &:active {
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.24);
+  }
+  &:disabled {
+    background-color: $tertiaryGrey;
+    color: $senaryGrey;
+  }
+}
+
+.btn-tertiary {
+  height: 16px;
+  border: none;
+  color: $primaryColor;
+  background: none;
+  font-size: 14px;
+  font-weight: 600;
+  &:hover {
+    color: $secondaryColor;
+  }
+  &:active {
+    color: $primaryColor;
+  }
+  &:disabled {
+    color: $senaryGrey;
+  }
+}
+
+.btn-quaternary {
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background-color: $primaryGrey;
+  color: $primaryColor;
+  font-size: 16px;
+  font-weight: 600;
+  &:hover {
+    background-color: $secondaryGrey;
+  }
+  &:active {
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.24);
+  }
+  &:disabled {
+    background-color: $tertiaryGrey;
+    color: $senaryGrey;
+  }
+}
+
+.border-asis-ok {
+  border: 1px solid $successColor;
+}
+.border-asis-not {
+  border: 1px solid $errorColor;
+}
+
+.button-cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  width: 200px;
+  height: 44px;
+  background: #e53939;
+  border-radius: 8px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
