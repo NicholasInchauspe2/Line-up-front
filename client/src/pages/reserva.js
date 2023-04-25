@@ -14,17 +14,15 @@ export async function getServerSideProps(context) {
   } else {
     if (session.user) {
       const res = await fetch(
-        // `https://matias-lineup.onrender.com/api/user/validate/token?token=${session.user}`,
-        `http://localhost:3001/api/user/validate/token?token=${session.user}`,
-        {}
-        // { withCredentials: true, credentials: "include" }
+        `https://matias-lineup.onrender.com/api/user/validate/token?token=${session.user}`,
+        {},
+        { withCredentials: true, credentials: "include" }
       );
       const data = await res.json();
       const response = await fetch(
-        // "https://matias-lineup.onrender.com/api/appointments/branches",
-        "http://localhost:3001/api/appointments/branches",
-        {}
-        // { withCredentials: true, credentials: "include" }
+        "https://matias-lineup.onrender.com/api/appointments/branches",
+        {},
+        { withCredentials: true, credentials: "include" }
       );
       const branchData = await response.json();
 

@@ -16,10 +16,9 @@ export default NextAuth({
         };
         try {
           const res = await axios.post(
-            // "https://matias-lineup.onrender.com/api/user/login",
-            "http://localhost:3001/api/user/login",
-            payload
-            // { withCredentials: true, credentials: "include" }
+            "https://matias-lineup.onrender.com/api/user/login",
+            payload,
+            { withCredentials: true, credentials: "include" }
           );
 
           const user = res.data;
