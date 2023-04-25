@@ -1,8 +1,9 @@
 import FormUserData from "@/components/FormUseData/FormUserData";
+import { getSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
-  const sessionToken = context.req.cookies["next-auth.session-token"];
-  if (!sessionToken) {
+  const session = await getSession(context);
+  if (!session) {
     return {
       redirect: {
         destination: "/",
