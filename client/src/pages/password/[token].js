@@ -22,7 +22,7 @@ const createPassword = () => {
       try {
         if (token) {
           const res = await axios.put(
-            `https://matias-lineup.onrender.com/api/user/new-password`,
+            `https://line-up-back.onrender.com/api/user/new-password`,
             {
               password: data.password,
               token,

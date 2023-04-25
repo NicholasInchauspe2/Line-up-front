@@ -30,7 +30,7 @@ export default function FormEditOperator({ user, branchName, idLocation }) {
       const { name, email, password, dni, location } = dat;
       try {
         const response = await axios.put(
-          `https://matias-lineup.onrender.com/api/admin/edit-one-operator/${user._id}/token?token=${data.user}`,
+          `https://line-up-back.onrender.com/api/admin/edit-one-operator/${user._id}/token?token=${data.user}`,
           {
             name,
             email,

@@ -64,7 +64,7 @@ export default function FormEditBranch({ branch }) {
       }
 
       const response = await axios.put(
-        `https://matias-lineup.onrender.com/api/admin/edit-branch-info/${id}/token?token=${data.user}`,
+        `https://line-up-back.onrender.com/api/admin/edit-branch-info/${id}/token?token=${data.user}`,
         { closingHour, openingHour, allowedClients },
         { withCredentials: true, credentials: "include" }
       );

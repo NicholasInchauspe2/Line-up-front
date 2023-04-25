@@ -13,13 +13,13 @@ export async function getServerSideProps(context) {
   } else {
     if (session.user) {
       const res = await fetch(
-        `https://matias-lineup.onrender.com/api/user/validate/token?token=${session.user}`,
+        `https://line-up-back.onrender.com/api/user/validate/token?token=${session.user}`,
         {},
         { withCredentials: true, credentials: "include" }
       );
       const data = await res.json();
       const response = await fetch(
-        "https://matias-lineup.onrender.com/api/appointments/branches",
+        "https://line-up-back.onrender.com/api/appointments/branches",
         {},
         { withCredentials: true, credentials: "include" }
       );

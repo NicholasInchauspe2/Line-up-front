@@ -20,7 +20,7 @@ export default function FormUserData() {
       try {
         if (data && data?.user) {
           const tokenUser = await axios.get(
-            `https://matias-lineup.onrender.com/api/user/validate/token?token=${data.user}`,
+            `https://line-up-back.onrender.com/api/user/validate/token?token=${data.user}`,
             {},
             { withCredentials: true, credentials: "include" }
           );
@@ -44,7 +44,7 @@ export default function FormUserData() {
     onSubmit: async (data) => {
       const { password } = data;
       const response = await axios.put(
-        `https://matias-lineup.onrender.com/api/user/new-password`,
+        `https://line-up-back.onrender.com/api/user/new-password`,
         {
           password,
           token: userToken.user,

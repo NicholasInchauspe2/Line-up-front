@@ -184,7 +184,7 @@ export default function FormReserva({ branches, user }) {
     if (branch !== "Selecciona una opcion") {
       setSelectedBranch(branch);
       const datesAvailables = await axios.post(
-        "https://matias-lineup.onrender.com/api/appointments/daysavailable",
+        "https://line-up-back.onrender.com/api/appointments/daysavailable",
         {
           days: fechasFiltradas,
           branch: branch,
@@ -264,7 +264,7 @@ export default function FormReserva({ branches, user }) {
     const selectedDate = e.target.value;
     setSelectedDay(selectedDate);
     const hours = await axios.post(
-      "https://matias-lineup.onrender.com/api/appointments/hoursavailable",
+      "https://line-up-back.onrender.com/api/appointments/hoursavailable",
       {
         branch: dayValue,
         day: selectedDate,
@@ -319,7 +319,7 @@ export default function FormReserva({ branches, user }) {
     });
     axios
       .put(
-        "https://matias-lineup.onrender.com/api/appointments/edit",
+        "https://line-up-back.onrender.com/api/appointments/edit",
         {
           idApp: id,
           branch: selectedBranch,

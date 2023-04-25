@@ -16,7 +16,7 @@ const ForgetPassword = ({ setForgetPassword }) => {
     e.preventDefault();
     try {
       const passwordUpdate = await axios.put(
-        "https://matias-lineup.onrender.com/api/user/password-update-email",
+        "https://line-up-back.onrender.com/api/user/password-update-email",
         {
           email,
         },

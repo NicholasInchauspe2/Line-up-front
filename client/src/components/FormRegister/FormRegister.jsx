@@ -53,7 +53,7 @@ export default function FormRegister() {
       const { name, dni, email, password } = data;
       try {
         await axios.post(
-          "https://matias-lineup.onrender.com/api/user/register",
+          "https://line-up-back.onrender.com/api/user/register",
           {
             dni,
             name,

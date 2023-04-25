@@ -31,7 +31,7 @@ export default function FormNewOperator({ branches }) {
         const { name, email, password, dni, location } = dat;
         try {
           await axios.post(
-            `https://matias-lineup.onrender.com/api/admin/create-operator/token?token=${data.user}`,
+            `https://line-up-back.onrender.com/api/admin/create-operator/token?token=${data.user}`,
             {
               name,
               email,

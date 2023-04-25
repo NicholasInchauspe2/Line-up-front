@@ -14,7 +14,7 @@ export default function ListAppoinments({ branches, length, token }) {
   const handleEdit = async (status, id) => {
     if (status === "Cancel") return;
     const cancel = await axios.put(
-      `https://matias-lineup.onrender.com/api/operator/appointment/${id}/token?token=${token.user}`,
+      `https://line-up-back.onrender.com/api/operator/appointment/${id}/token?token=${token.user}`,
       { status },
       { withCredentials: true, credentials: "include" }
     );

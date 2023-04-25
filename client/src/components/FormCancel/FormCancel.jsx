@@ -30,7 +30,7 @@ const FormCancel = ({ user, token, idApp }) => {
 
   const handleCancel = async (cancelReason) => {
     const cancel = await axios.put(
-      `https://matias-lineup.onrender.com/api/appointments/cancel/${idApp}/token?token=${token.user}`,
+      `https://line-up-back.onrender.com/api/appointments/cancel/${idApp}/token?token=${token.user}`,
       { cancelReason },
       { withCredentials: true, credentials: "include" }
     );

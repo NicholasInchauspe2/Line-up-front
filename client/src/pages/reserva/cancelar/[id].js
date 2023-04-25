@@ -17,14 +17,14 @@ export async function getServerSideProps(context) {
     };
   } else {
     const response = await fetch(
-      `https://matias-lineup.onrender.com/api/user/validate/token?token=${token.user}`,
+      `https://line-up-back.onrender.com/api/user/validate/token?token=${token.user}`,
       {},
       { withCredentials: true, credentials: "include" }
     );
     const data = await response.json();
 
     const appointments = await fetch(
-      `https://matias-lineup.onrender.com/api/appointments/${id}/token?token=${token.user}`,
+      `https://line-up-back.onrender.com/api/appointments/${id}/token?token=${token.user}`,
       {},
       { withCredentials: true, credentials: "include" }
     );

@@ -63,7 +63,7 @@ export default function FormNewBranch() {
       }
 
       const response = await axios.post(
-        `https://matias-lineup.onrender.com/api/admin/create-branch/token?token=${data.user}`,
+        `https://line-up-back.onrender.com/api/admin/create-branch/token?token=${data.user}`,
         { name, location, closingHour, openingHour, allowedClients },
         { withCredentials: true, credentials: "include" }
       );

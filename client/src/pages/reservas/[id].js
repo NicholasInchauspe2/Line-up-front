@@ -13,7 +13,7 @@ export async function getServerSideProps(context) {
     };
   } else {
     const response = await fetch(
-      `https://matias-lineup.onrender.com/api/appointments/user-appointments/${pagination}?token=${token.user}`,
+      `https://line-up-back.onrender.com/api/appointments/user-appointments/${pagination}?token=${token.user}`,
       {},
       { withCredentials: true, credentials: "include" }
     );
