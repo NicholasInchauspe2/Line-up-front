@@ -2,9 +2,8 @@ import FormReservaEdit from "@/components/FormReservaEdit/FormReservaEdit";
 import { getSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
-  const sessionToken = context.req.cookies["next-auth.session-token"];
   const session = await getSession(context);
-  if (!sessionToken) {
+  if (!session) {
     return {
       redirect: {
         destination: "/",

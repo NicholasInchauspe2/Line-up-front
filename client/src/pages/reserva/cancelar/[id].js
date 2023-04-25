@@ -3,7 +3,6 @@ import Link from "next/link";
 import FormCancel from "@/components/FormCancel/FormCancel";
 import InfoReservation from "@/components/InfoReservation/InfoReservation";
 import { getSession } from "next-auth/react";
-import { useRouter } from "next/router";
 
 export async function getServerSideProps(context) {
   const { id } = context.query;

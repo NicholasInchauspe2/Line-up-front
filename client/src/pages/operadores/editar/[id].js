@@ -3,9 +3,8 @@ import { getSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
   let id = context.query.id;
-  const sessionToken = context.req.cookies["next-auth.session-token"];
   const session = await getSession(context);
-  if (!sessionToken) {
+  if (!session) {
     return {
       redirect: {
         destination: "/",
