@@ -143,28 +143,7 @@ export default function FormLogin({ secret }) {
                 paddingTop: "20px",
                 display: "flex",
               }}
-            >
-              <button
-                className="btn-primary width-100"
-                onClick={(e) => {
-                  handleGoogleSignIn(e);
-                }}
-              >
-                <div style={{ marginBottom: "4px" }}>
-                  Continuar con Google
-                  <Image
-                    style={{
-                      height: "13px",
-                      width: "22px",
-                      marginLeft: "5px",
-                      marginTop: "7px",
-                    }}
-                    src={googleIcon}
-                    alt="google logo"
-                  />
-                </div>
-              </button>
-            </div>
+            ></div>
           </div>
           <hr />
           <div>
