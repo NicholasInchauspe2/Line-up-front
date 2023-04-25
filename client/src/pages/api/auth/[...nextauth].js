@@ -33,7 +33,7 @@ export default NextAuth({
       clientSecret: process.env.CLIENT_SECRET,
     }),
   ],
-  basePath: "https://lineup-front.vercel.app",
+  basePath: "https://web-app-line-up.vercel.app",
   secret: process.env.SECRET,
   session: {
     jwt: true,
