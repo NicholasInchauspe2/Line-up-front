@@ -22,11 +22,12 @@ const createPassword = () => {
       try {
         if (token) {
           const res = await axios.put(
-            `http://localhost:3001/api/user/new-password`,
+            `https://matias-lineup.onrender.com/api/user/new-password`,
             {
               password: data.password,
               token,
-            }
+            },
+            { withCredentials: true, credentials: "include" }
           );
           setModalIsOpen(true);
         }

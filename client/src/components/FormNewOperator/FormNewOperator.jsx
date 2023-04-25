@@ -31,7 +31,7 @@ export default function FormNewOperator({ branches }) {
         const { name, email, password, dni, location } = dat;
         try {
           await axios.post(
-            `http://localhost:3001/api/admin/create-operator/token?token=${data.user}`,
+            `https://matias-lineup.onrender.com/api/admin/create-operator/token?token=${data.user}`,
             {
               name,
               email,
@@ -40,7 +40,8 @@ export default function FormNewOperator({ branches }) {
               location,
               phone: 111608,
               operator: true,
-            }
+            },
+            { withCredentials: true, credentials: "include" }
           );
           setModalIsOpen(true);
         } catch (err) {
@@ -84,7 +85,7 @@ export default function FormNewOperator({ branches }) {
             style={{ marginTop: "5px" }}
           >
             <div className="login-form_box-title">
-              <h2>Crear una nuevo operador</h2>
+              <h2>Crear un nuevo operador</h2>
             </div>
             <div className="login-form_box-input">
               <label htmlFor="name" style={{ marginTop: "5px" }}>
@@ -162,9 +163,9 @@ export default function FormNewOperator({ branches }) {
                   <option value={"Seleciona un valor"}>
                     Seleciona un valor
                   </option>
-                  {branches.map((branch) => {
+                  {branches.map((branch, i) => {
                     return (
-                      <option value={branch.name} key={branch.id}>
+                      <option value={branch.name} key={i}>
                         {branch.name}
                       </option>
                     );

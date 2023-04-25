@@ -16,10 +16,11 @@ const ForgetPassword = ({ setForgetPassword }) => {
     e.preventDefault();
     try {
       const passwordUpdate = await axios.put(
-        "http://localhost:3001/api/user/password-update-email",
+        "https://matias-lineup.onrender.com/api/user/password-update-email",
         {
           email,
-        }
+        },
+        { withCredentials: true, credentials: "include" }
       );
       passwordUpdate && setModalIsOpen(true);
     } catch {

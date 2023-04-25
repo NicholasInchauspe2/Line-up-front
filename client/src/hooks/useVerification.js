@@ -10,7 +10,9 @@ export default function useVerification() {
       try {
         if (data && data?.user) {
           const tokenUser = await axios.get(
-            `http://localhost:3001/api/user/validate/token?token=${data.user}`
+            `https://matias-lineup.onrender.com/api/user/validate/token?token=${data.user}`,
+            {},
+            { withCredentials: true, credentials: "include" }
           );
           if (tokenUser) {
             setUser(tokenUser.data);

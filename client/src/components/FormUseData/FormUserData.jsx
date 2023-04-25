@@ -20,7 +20,9 @@ export default function FormUserData() {
       try {
         if (data && data?.user) {
           const tokenUser = await axios.get(
-            `http://localhost:3001/api/user/validate/token?token=${data.user}`
+            `https://matias-lineup.onrender.com/api/user/validate/token?token=${data.user}`,
+            {},
+            { withCredentials: true, credentials: "include" }
           );
           if (tokenUser) {
             setUser(tokenUser.data);
@@ -42,11 +44,12 @@ export default function FormUserData() {
     onSubmit: async (data) => {
       const { password } = data;
       const response = await axios.put(
-        `http://localhost:3001/api/user/new-password`,
+        `https://matias-lineup.onrender.com/api/user/new-password`,
         {
           password,
           token: userToken.user,
-        }
+        },
+        { withCredentials: true, credentials: "include" }
       );
       setModalIsOpen(true);
       formik.values.password = "";

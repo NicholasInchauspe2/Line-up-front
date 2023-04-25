@@ -30,8 +30,9 @@ const FormCancel = ({ user, token, idApp }) => {
 
   const handleCancel = async (cancelReason) => {
     const cancel = await axios.put(
-      `http://localhost:3001/api/appointments/cancel/${idApp}/token?token=${token.user}`,
-      { cancelReason }
+      `https://matias-lineup.onrender.com/api/appointments/cancel/${idApp}/token?token=${token.user}`,
+      { cancelReason },
+      { withCredentials: true, credentials: "include" }
     );
     setModalIsOpen(true);
   };

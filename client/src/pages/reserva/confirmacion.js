@@ -13,7 +13,9 @@ export async function getServerSideProps(context) {
     };
   } else {
     const response = await fetch(
-      `http://localhost:3001/api/appointments/lastAppointment/token?token=${token.user}`
+      `https://matias-lineup.onrender.com/api/appointments/lastAppointment/token?token=${token.user}`,
+      {},
+      { withCredentials: true, credentials: "include" }
     );
 
     const data = await response.json();

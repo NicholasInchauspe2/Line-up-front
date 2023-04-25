@@ -14,8 +14,9 @@ export default function ListAppoinments({ branches, length, token }) {
   const handleEdit = async (status, id) => {
     if (status === "Cancel") return;
     const cancel = await axios.put(
-      `http://localhost:3001/api/operator/appointment/${id}/token?token=${token.user}`,
-      { status }
+      `https://matias-lineup.onrender.com/api/operator/appointment/${id}/token?token=${token.user}`,
+      { status },
+      { withCredentials: true, credentials: "include" }
     );
   };
 
@@ -27,13 +28,13 @@ export default function ListAppoinments({ branches, length, token }) {
             <h2>Reservas</h2>
           </div>
           <div className="container-list">
-            {branches.map((app) => {
+            {branches.map((app, i) => {
               const createdAt = new Date(app.createdAt);
               const day = `${createdAt.getDate()}/${
                 createdAt.getMonth() + 1
               }/${createdAt.getFullYear()}`;
               return (
-                <div className="item-list" key={app._id}>
+                <div className="item-list" key={i}>
                   <div className="item-section">
                     <div className="item-title">Nombre y Apellido</div>
                     <div className="item-description">{app.user}</div>

@@ -20,6 +20,7 @@ export default function FormReserva({ branches, user }) {
   const [horarios, setHorarios] = useState([]);
   const [monthDay, setMonthDay] = useState("");
   const [newPhone, setNewPhone] = useState("");
+
   const router = useRouter();
   const rute = useRouter();
   const dayRef = useRef();
@@ -183,12 +184,13 @@ export default function FormReserva({ branches, user }) {
     if (branch !== "Selecciona una opcion") {
       setSelectedBranch(branch);
       const datesAvailables = await axios.post(
-        "http://localhost:3001/api/appointments/daysavailable",
+        "https://matias-lineup.onrender.com/api/appointments/daysavailable",
         {
           days: fechasFiltradas,
           branch: branch,
           email: user.email,
-        }
+        },
+        { withCredentials: true, credentials: "include" }
       );
       loadingData.forEach((fecha, i) => {
         datesAvailables.data.arrayToSend.day;
@@ -262,11 +264,12 @@ export default function FormReserva({ branches, user }) {
     const selectedDate = e.target.value;
     setSelectedDay(selectedDate);
     const hours = await axios.post(
-      "http://localhost:3001/api/appointments/hoursavailable",
+      "https://matias-lineup.onrender.com/api/appointments/hoursavailable",
       {
         branch: dayValue,
         day: selectedDate,
-      }
+      },
+      { withCredentials: true, credentials: "include" }
     );
 
     horario = hours.data;
@@ -315,14 +318,18 @@ export default function FormReserva({ branches, user }) {
       className: "fontGreen",
     });
     axios
-      .post("http://localhost:3001/api/appointments/add", {
-        branch: selectedBranch,
-        name: user.name,
-        email: user.email,
-        phoneNew: newPhone || user.phone,
-        day: selectedDay,
-        time: selectedHour,
-      })
+      .post(
+        "https://matias-lineup.onrender.com/api/appointments/add",
+        {
+          branch: selectedBranch,
+          name: user.name,
+          email: user.email,
+          phoneNew: newPhone || user.phone,
+          day: selectedDay,
+          time: selectedHour,
+        },
+        { withCredentials: true, credentials: "include" }
+      )
       .then(() => setModalIsOpen(true));
   };
 

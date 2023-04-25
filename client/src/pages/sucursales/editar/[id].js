@@ -14,7 +14,9 @@ export async function getServerSideProps(context) {
     };
   } else {
     const branch = await axios.get(
-      `http://localhost:3001/api/admin/get-one-branch/${id}/token?token=${token.user}`
+      `https://matias-lineup.onrender.com/api/admin/get-one-branch/${id}/token?token=${token.user}`,
+      {},
+      { withCredentials: true, credentials: "include" }
     );
     return {
       props: {

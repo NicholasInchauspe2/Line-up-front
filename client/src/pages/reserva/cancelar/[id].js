@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 export async function getServerSideProps(context) {
   const { id } = context.query;
-
   const token = await getSession(context);
 
   if (!token.user) {
@@ -19,12 +18,16 @@ export async function getServerSideProps(context) {
     };
   } else {
     const response = await fetch(
-      `http://localhost:3001/api/user/validate/token?token=${token.user}`
+      `https://matias-lineup.onrender.com/api/user/validate/token?token=${token.user}`,
+      {},
+      { withCredentials: true, credentials: "include" }
     );
     const data = await response.json();
 
     const appointments = await fetch(
-      `http://localhost:3001/api/appointments/${id}/token?token=${token.user}`
+      `https://matias-lineup.onrender.com/api/appointments/${id}/token?token=${token.user}`,
+      {},
+      { withCredentials: true, credentials: "include" }
     );
     const userAppointment = await appointments.json();
 

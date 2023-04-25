@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { BsCheckSquare } from "react-icons/bs";
 import Modal from "@/commons/Modal";
@@ -64,8 +64,9 @@ export default function FormEditBranch({ branch }) {
       }
 
       const response = await axios.put(
-        `http://localhost:3001/api/admin/edit-branch-info/${id}/token?token=${data.user}`,
-        { closingHour, openingHour, allowedClients }
+        `https://matias-lineup.onrender.com/api/admin/edit-branch-info/${id}/token?token=${data.user}`,
+        { closingHour, openingHour, allowedClients },
+        { withCredentials: true, credentials: "include" }
       );
       setModalIsOpen(true);
     },

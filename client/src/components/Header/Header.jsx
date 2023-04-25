@@ -6,10 +6,7 @@ import note from "../../assets/note.svg";
 import operate from "../../assets/operate.svg";
 import branchIcon from "../../assets/branch.svg";
 import { signOut } from "next-auth/react";
-import { useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
 import useVerification from "@/hooks/useVerification";
-import axios from "axios";
 
 export default function Header({ hide }) {
   let { data, user } = useVerification();

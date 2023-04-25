@@ -15,7 +15,9 @@ export async function getServerSideProps(context) {
   } else {
     if (session.user) {
       const res = await fetch(
-        `http://localhost:3001/api/admin/get-one-operator/${id}/token?token=${session.user}`
+        `https://matias-lineup.onrender.com/api/admin/get-one-operator/${id}/token?token=${session.user}`,
+        {},
+        { withCredentials: true, credentials: "include" }
       );
 
       const data = await res.json();
